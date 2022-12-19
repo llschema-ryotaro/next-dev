@@ -1,11 +1,13 @@
-import { client } from "../../libs/client";
-import styles from '../../styles/Home.module.scss';
+import { getBlogBySlug } from '../../libs/api';
+import { client } from '../../libs/client';
+import ConvertDate from '../../components/convert-date';
+import styles from '../../styles/container.module.scss';
 
-export default function blogId({ blog }) {
+export default function Blog({ blog }) {
   return (
     <main claaaName={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <ConvertDate dateISO={blog.publishedAt}></ConvertDate>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.content}`,
@@ -14,7 +16,6 @@ export default function blogId({ blog }) {
     </main>
   );
 }
-
 
 
 
@@ -28,12 +29,12 @@ export const getStaticPaths = async () => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const data = await client.get({ endpoint: "blog", contentId: id });
+  const slug = context.params.slug || null
+  const post = await getBlogBySlug(slug) || null
 
   return {
     props: {
-      blog: data,
+      blog: post,
     },
   };
 };

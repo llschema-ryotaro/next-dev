@@ -1,18 +1,21 @@
 import { getNewsBySlug } from '../../libs/api';
 import { client } from '../../libs/client';
 import ConvertDate from '../../components/convert-date';
+import Container from '../../components/container';
 import styles from '../../styles/container.module.scss';
 
 export default function News({ news }) {
   return (
     <main claaaName={styles.main}>
-      <h1 className={styles.title}>{news.title}</h1>
-      <ConvertDate dateISO={news.publishedAt}></ConvertDate>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${news.content}`,
-        }}
-      />
+      <Container>
+        <h1 className={styles.title}>{news.title}</h1>
+        <ConvertDate dateISO={news.publishedAt}></ConvertDate>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${news.content}`,
+          }}
+        />
+      </Container>
     </main>
   );
 }

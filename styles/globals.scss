@@ -1,3 +1,16 @@
+// font-size
+$body-font-size: 16px !default; /* 16px */
+
+$font-size-base: 16px !default; /* 14px-15px */
+
+$font-size-xs: clamp(1.5rem, 1rem + 1vw, 2rem) !default; /* 24px-32px */
+$font-size-sm: clamp(12px, 4px + .4vw, 14px) !default; /* 12px-14px */
+$font-size-md: clamp(1rem, .875rem + .4vw, 1.25rem) !default; /* 16px-20px */
+$font-size-lg: clamp(18px, 6px + 1.8vw, 24px) !default; /* 18px-24px */
+$font-size-xl: clamp(18px, 6px + 1.6vw, 28px) !default; /* 24px-28px */
+$font-size-xxl: clamp(24px, 10px + 2vw, 40px) !default; /* 24px-40px */
+$font-size-xxxl: clamp(30px, 8px + 5.6vw, 64px) !default; /* 30px-64px */
+
 :root {
   /* カラー（色） */
   --white: #ffffff;
@@ -9,15 +22,14 @@
   --accent: #0d87e0;
 
   /* タイポグラフィ（フォントサイズ） */
-  --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); /* 16-18px */
-  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem); /* 72-160 */
-  --heading1: clamp(2rem, 1.3rem + 3vw, 4rem); /* 32-64px */
-  --heading2: calc(var(--body) * 1.5); /* 24-27px */
-  --heading3: calc(var(--body) * 1.2); /* 19.2-21.6px */
-  --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem); /* 14-27px */
-  --small-heading3: calc(var(--small-heading2) * 0.86); /* 12-23px */
+  --body: #{$body-font-size};
+  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem);
+  --heading1: #{$font-size-xxxl};
+  --heading2: #{$font-size-xxl};
+  --heading3: #{$font-size-xl};
+  --small-heading2: #{$font-size-lg};
+  --small-heading3: #{$font-size-md};
 
-  /* スペース（余白・間隔） */
   --space-xs: clamp(1.25rem, 1rem + 0.98vw, 1.875rem); /* 20-30px */
   --space-sm: calc(var(--space-xs) * 1.5); /* 30-45px */
   --space-md: calc(var(--space-xs) * 2); /* 40-60px */
@@ -29,8 +41,7 @@
 /* 基本設定 */
 body {
   color: var(--black);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: var(--body);
 }
 

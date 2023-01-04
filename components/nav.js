@@ -33,17 +33,17 @@ export default function Nav() {
       </button>
 
       <ul className={styles.list}>
-        <li>
+        <li className={styles.listItem}>
           <Link href="/">
             <span onClick={closeNav}>Home</span>
           </Link>
         </li>
-        <li>
-          <Link href="/about">
-            <span onClick={closeNav}>About</span>
+        <li className={styles.listItem}>
+          <Link href="/news">
+            <span onClick={closeNav}>News</span>
           </Link>
         </li>
-        <li>
+        <li className={styles.listItem}>
           <Link href="/blog">
             <span onClick={closeNav}>Blog</span>
           </Link>

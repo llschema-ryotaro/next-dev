@@ -1,0 +1,31 @@
+// Breakpoint Mixin
+$breakpoints: (
+	xs: null,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1230px,
+	xxl: 1400px
+);
+
+@mixin responsive($name, $until: false) {
+	@if not map-has-key($breakpoints, $name) {
+		@error '指定されたブレークポイントは定義されていません。' + '指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}';
+	}
+
+	$breakpoint: map-get($breakpoints, $name);
+
+	@if $breakpoint {
+		@if $until {
+			@media not all and (min-width: $breakpoint) {
+				@content;
+			}
+		} @else {
+				@media (min-width: $breakpoint) {
+					@content;
+				}
+		}
+	} @else {
+		@content;
+	}
+}

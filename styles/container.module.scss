@@ -1,17 +1,22 @@
+.full {
+  padding: 0 4vw;
+  margin: 0 auto;
+}
+
 .large {
   max-width: 1280px;
-  padding: 0 40px;
+  padding: 0 4vw;
   margin: 0 auto;
 }
 
 .default {
-  max-width: 880px;
-  padding: 0 40px;
-  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 4vw;
+  margin: 120px auto 0;
 }
 
 .small {
   max-width: 680px;
-  padding: 0 40px;
+  padding: 0 4vw;
   margin: 0 auto;
 }

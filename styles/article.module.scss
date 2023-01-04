@@ -1,0 +1,27 @@
+.article h1 {
+  font-size: var(--heading2);
+  margin-bottom: 32px;
+}
+
+.article h2 {
+  font-size: var(--heading3);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.article h3 {
+  font-size: var(--small-heading2);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.article h4 {
+  font-size: var(--small-heading3);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.article img {
+  width: 100%;
+  margin-top: 20px;
+}

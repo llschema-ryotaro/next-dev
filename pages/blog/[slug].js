@@ -1,24 +1,26 @@
-import { getBlogBySlug } from '../../libs/api';
-import { client } from '../../libs/client';
-import ConvertDate from '../../components/convert-date';
-import Container from '../../components/container';
-import styles from '../../styles/container.module.scss';
+import { getBlogBySlug } from 'libs/api';
+import { client } from 'libs/client';
+
+import ConvertDate from 'components/convert-date';
+import Container from 'components/container';
+import Meta from 'components/meta';
+
+import styles from 'styles/article.module.scss';
 
 export default function Blog({ blog }) {
   return (
-    <main claaaName={styles.main}>
-      <Container>
-        <div className={styles.container}>
-          <h1 className={styles.title}>{blog.title}</h1>
-          <ConvertDate dateISO={blog.publishedAt}></ConvertDate>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${blog.content}`,
-            }}
-          />
-        </div>
-      </Container>
-    </main>
+    <Container>
+      <Meta pageTitle="ブログ" pageDesc="ブログ" />
+      <div className={styles.article}>
+        <h1 className={styles.title}>{blog.title}</h1>
+        <ConvertDate dateISO={blog.publishedAt}></ConvertDate>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${blog.content}`,
+          }}
+        />
+      </div>
+    </Container>
   );
 }
 

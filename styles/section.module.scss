@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'breakpoint';
+
+.section + .section {
+  margin-top: 80px;
+  @include responsive(md) {
+    margin-top: 120px;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-xxxxl;
+}
+
+.sectionTitle + .sectionContents {
+  margin-top: 15px;
+  @include responsive(md) {
+    margin-top: 20px;
+  }
+}

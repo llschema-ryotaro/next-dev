@@ -8,7 +8,7 @@ import PostsNews from "components/postsNews";
 export default function Home({news}) {
   return (
     <>
-      <Hero title="NEWS" subtitle="日々のニュースをお届けします" imageOn/>
+      <Hero title="NEWS" subtitle="日々のニュースをお届けします"/>
       <Container full>
         <Meta/>
         <PostsNews posts={news}/>

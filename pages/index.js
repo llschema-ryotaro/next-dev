@@ -1,8 +1,9 @@
 import { client, getBlogAllPosts } from "libs/api";
 import { eyecatchLocal } from 'libs/constants'
 
-import Container from "components/container";
 import Meta from "components/meta";
+import Container from "components/container";
+import Section from "components/section";
 import PostsNews from "components/postsNews";
 import PostsBlog from "components/postsBlog";
 
@@ -15,11 +16,14 @@ export default function Home({ news, blog }) {
     <Container full>
       <Meta/>
 
-      <h2>NEWS</h2>
-      <PostsNews posts={news}/>
+      <Section title="NEWS">
+        <PostsNews posts={news}/>
+      </Section>
       
-      <h2>BLOG</h2>
-      <PostsBlog posts={blog}/>
+      
+      <Section title="BLOG">
+        <PostsBlog posts={blog}/>
+      </Section>
       
     </Container>
   );

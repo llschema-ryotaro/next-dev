@@ -29,6 +29,7 @@
   color: var(--gray-25);
   margin-bottom: 10px;
   font-weight: 700;
+  flex-shrink: 0;
   @include responsive(md) {
     margin-bottom: 0;
   }

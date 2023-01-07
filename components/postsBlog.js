@@ -6,6 +6,7 @@ import ConvertDate from 'components/convert-date';
 import styles from "styles/blog.module.scss"
 
 export default function PostsBlog({ posts }) {
+
   return (
     <ul className={styles.blogList}>
       {posts.map((posts) => (

@@ -40,15 +40,6 @@
 /* モバイル */
 @media (max-width: 767px) {
 
-
-
-
-
-  /* ボタン内のバー */
-  .btn {
-
-  }
-
   .btn::before,
   .btn::after,
   .btn .bar {
@@ -81,15 +72,18 @@
   /* メニュー（オーバーレイ） */
   .list {
     position: fixed;
-    inset: 0 -100% 0 100%;
+    inset: 0 0 0 0;
     z-index: 100;
     background: rgba(0, 0, 0, 0.8);
     color: var(--white);
-    transition: transform 0.4s;
+    transition: opacity 0.4s;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .open .list {
-    transform: translateX(-100%);
+    opacity: 1;
+    pointer-events: all;
   }
 
   /* メニュー（オーバーレイ内の配置） */

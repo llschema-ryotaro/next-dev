@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "date-fns": "^2.29.3",
+    "gsap": "^3.11.4",
     "microcms-js-sdk": "^2.3.2",
     "next": "13.0.6",
     "plaiceholder": "^2.5.0",

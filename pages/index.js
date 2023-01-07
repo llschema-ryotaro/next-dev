@@ -3,6 +3,7 @@ import { eyecatchLocal } from 'libs/constants'
 
 import Meta from "components/meta";
 import Container from "components/container";
+import Hero from "components/hero";
 import Section from "components/section";
 import PostsNews from "components/postsNews";
 import PostsBlog from "components/postsBlog";
@@ -13,19 +14,23 @@ import { getPlaiceholder } from 'plaiceholder'
 
 export default function Home({ news, blog }) {
   return (
-    <Container full>
+    <>
       <Meta/>
 
-      <Section title="NEWS">
-        <PostsNews posts={news}/>
-      </Section>
-      
-      
-      <Section title="BLOG">
-        <PostsBlog posts={blog}/>
-      </Section>
-      
-    </Container>
+      <Hero mv/>
+
+      <Container full>
+        <Section title="NEWS">
+          <PostsNews posts={news}/>
+        </Section>
+        
+        
+        <Section title="BLOG">
+          <PostsBlog posts={blog}/>
+        </Section>
+        
+      </Container>
+    </>
   );
 }
 

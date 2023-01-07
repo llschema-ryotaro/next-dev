@@ -1,5 +1,5 @@
 import { getNewsBySlug } from 'libs/api';
-import { client } from 'libs/client';
+import { client } from 'libs/api';
 import ConvertDate from 'components/convert-date';
 import Container from 'components/container';
 

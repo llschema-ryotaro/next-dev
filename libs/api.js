@@ -5,6 +5,23 @@ export const client = createClient({
   apiKey: process.env.API_KEY,
 });
 
+export async function getBlogAllPosts(limit = 100) {
+  try {
+    const posts = await client.get({
+      endpoint: 'blog',
+      queries: {
+        fields: 'title,slug,eyecatch,publishedAt',
+        orders: '-publishDate',
+        limit: limit,
+      },
+    })
+    return posts.contents
+  } catch (err) {
+    console.log('~~ getBlogAllPosts ~~')
+    console.log(err)
+  }
+}
+
 export async function getBlogBySlug(slug) {
   try {
     const post = await client.get({
@@ -13,7 +30,7 @@ export async function getBlogBySlug(slug) {
     })
     return post.contents[0]
   } catch (err) {
-    console.log('~~ getPostBySlug ~~')
+    console.log('~~ getBlogBySlug ~~')
     console.log(err)
   }
 }
@@ -26,7 +43,7 @@ export async function getNewsBySlug(slug) {
     })
     return post.contents[0]
   } catch (err) {
-    console.log('~~ getPostBySlug ~~')
+    console.log('~~ getNewsBySlug ~~')
     console.log(err)
   }
 }

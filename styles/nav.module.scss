@@ -1,47 +1,52 @@
-/* デスクトップ */
-@media (min-width: 768px) {
-  .btn {
+@import 'variables';
+@import 'breakpoint';
+
+
+.btn {
+  display: grid;
+  place-items: center;
+  all: unset;
+  outline: revert;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  position: relative;
+  z-index: 200;
+  @include responsive(md) {
     display: none;
   }
+}
 
-  .list {
-    display: flex;
-    gap: 2em;
-  }
+.close .btn {
+  color: var(--gray-75);
+}
 
-  .listItem a {
-    transition: color 0.4s ease-out;
-    color: var(--gray-50);
-    font-weight: 700;
-  }
+.open .btn {
+  color: var(--white);
+}
+
+.list {
+  display: flex;
+  gap: 2em;
+}
+
+.listItem a {
+  transition: color 0.4s ease-out;
+  color: var(--gray-50);
+  font-weight: 700;
 }
 
 /* モバイル */
 @media (max-width: 767px) {
-  /* ボタン */
-  .btn {
-    all: unset;
-    outline: revert;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
-    position: relative;
-    z-index: 200;
-  }
 
-  .close .btn {
-    color: var(--gray-75);
-  }
 
-  .open .btn {
-    color: var(--white);
-  }
+
+
 
   /* ボタン内のバー */
   .btn {
-    display: grid;
-    place-items: center;
+
   }
 
   .btn::before,

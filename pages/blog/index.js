@@ -1,39 +1,40 @@
-import Link from "next/link";
-import { client } from "libs/client";
+import { getBlogAllPosts } from "libs/api";
+import { eyecatchLocal } from 'libs/constants'
 
-import Container from "components/container";
 import Meta from "components/meta";
+import Container from "components/container";
+import Hero from "components/hero";
+import PostsBlog from "components/postsBlog";
 
-import ConvertDate from 'components/convert-date';
+import { getPlaiceholder } from 'plaiceholder'
 
 export default function Home({ blog }) {
   return (
-    <Container full>
+    <>
       <Meta/>
-      
-      <div>
-        <ul>
-          {blog.map((blog) => (
-            <li key={blog.slug}>
-              <Link href={`/blog/${blog.slug}`}>
-                <ConvertDate dateISO={blog.publishedAt}></ConvertDate>
-                {blog.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Container>
+      <Hero title="BLOG"></Hero>
+      <Container full>
+        <PostsBlog posts={blog}/>
+      </Container>
+    </>
   );
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const blogData = await client.get({ endpoint: "blog" });
+  const posts = await getBlogAllPosts();
+
+  for (const post of posts) {
+    if (!post.hasOwnProperty('eyecatch')) {
+      post.eyecatch = eyecatchLocal
+    }
+    const { base64 } = await getPlaiceholder(post.eyecatch.url)
+    post.eyecatch.blurDataURL = base64
+  }
 
   return {
     props: {
-      blog: blogData.contents,
+      blog: posts,
     },
   };
 };

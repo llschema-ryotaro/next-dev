@@ -27,9 +27,8 @@ export default function Nav() {
         `}</style>
       )}
 
-      <button className={styles.btn} onClick={toggleNav}>
+      <button className={styles.btn} onClick={toggleNav} aria-label="メニューを開く">
         <span className={styles.bar}></span>
-        <span className="sr-only">MENU</span>
       </button>
 
       <ul className={styles.list}>

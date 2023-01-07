@@ -1,5 +1,4 @@
-import { getBlogBySlug } from 'libs/api';
-import { client } from 'libs/client';
+import { client, getBlogBySlug } from 'libs/api';
 
 import ConvertDate from 'components/convert-date';
 import Container from 'components/container';
@@ -36,8 +35,8 @@ export const getStaticPaths = async () => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context) => {
-  const slug = context.params.slug || null
-  const post = await getBlogBySlug(slug) || null
+  const slug = context.params.slug || null;
+  const post = await getBlogBySlug(slug) || null;
 
   return {
     props: {

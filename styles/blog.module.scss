@@ -1,0 +1,19 @@
+@import 'breakpoint';
+
+.blogList {
+  @include responsive(md) {
+    display: flex;
+  }
+}
+
+.blogItem {
+  width: 100%;
+  @include responsive(md) {
+    width: 31%;
+  }
+}
+
+.blogItemImage {
+  position: relative;
+  padding-top: 56.25%;
+}

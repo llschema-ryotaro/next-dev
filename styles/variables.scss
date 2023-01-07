@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+
+// font-size
+$body-font-size: 16px !default; /* 16px */
+
+$font-size-base: 16px !default; /* 14px-15px */
+
+$font-size-xs: clamp(1.5rem, 1rem + 1vw, 2rem) !default; /* 24px-32px */
+$font-size-sm: clamp(12px, 4px + .4vw, 14px) !default; /* 12px-14px */
+$font-size-md: clamp(1rem, .875rem + .4vw, 1.25rem) !default; /* 16px-20px */
+$font-size-lg: clamp(18px, 6px + 1.8vw, 24px) !default; /* 18px-24px */
+$font-size-xl: clamp(18px, 6px + 1.6vw, 28px) !default; /* 24px-28px */
+$font-size-xxl: clamp(24px, 10px + 2vw, 40px) !default; /* 24px-40px */
+$font-size-xxxl: clamp(30px, 8px + 5.6vw, 64px) !default; /* 30px-64px */
+
+//link-color
+$link-color: #34332f !default;
+$link-hover-color: darken($link-color, 5%) !default;

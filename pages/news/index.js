@@ -1,27 +1,19 @@
-import Link from "next/link";
-import { client } from "libs/client";
+import { client } from "libs/api";
 
-import Container from "components/container";
 import Meta from "components/meta";
-import ConvertDate from 'components/convert-date';
+import Container from "components/container";
+import Hero from "components/hero";
+import PostsNews from "components/postsNews";
 
-export default function Home({ news }) {
+export default function Home({news}) {
   return (
-    <Container full>
-      <Meta/>
-      <div>
-        <ul>
-          {news.map((news) => (
-            <li key={news.slug}>
-              <Link href={`/news/${news.slug}`}>
-                <ConvertDate dateISO={news.publishedAt}></ConvertDate>
-                {news.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Container>
+    <>
+      <Hero title="NEWS" subtitle="日々のニュースをお届けします" imageOn/>
+      <Container full>
+        <Meta/>
+        <PostsNews posts={news}/>
+      </Container>
+    </>
   );
 }
 

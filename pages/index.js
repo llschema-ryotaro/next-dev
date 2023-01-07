@@ -1,37 +1,26 @@
-import Link from "next/link";
-import { client } from "libs/client";
+import { client, getBlogAllPosts } from "libs/api";
+import { eyecatchLocal } from 'libs/constants'
 
 import Container from "components/container";
 import Meta from "components/meta";
-import ConvertDate from 'components/convert-date';
+import PostsNews from "components/postsNews";
+import PostsBlog from "components/postsBlog";
+
+import { getPlaiceholder } from 'plaiceholder'
+
+
 
 export default function Home({ news, blog }) {
   return (
     <Container full>
       <Meta/>
-      <div>
-        <ul>
-          {news.map((news) => (
-            <li key={news.slug}>
-              <Link href={`/news/${news.slug}`}>
-                {news.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+
+      <h2>NEWS</h2>
+      <PostsNews posts={news}/>
       
-      <div>
-        <ul>
-          {blog.map((blog) => (
-            <li key={blog.slug}>
-              <Link href={`/blog/${blog.slug}`}>
-                {blog.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h2>BLOG</h2>
+      <PostsBlog posts={blog}/>
+      
     </Container>
   );
 }
@@ -39,12 +28,22 @@ export default function Home({ news, blog }) {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
   const newsData = await client.get({ endpoint: "news" });
-  const blogData = await client.get({ endpoint: "blog" });
+
+  const blogPosts = await getBlogAllPosts();
+
+  for (const blogPost of blogPosts) {
+    if (!blogPost.hasOwnProperty('eyecatch')) {
+      blogPost.eyecatch = eyecatchLocal
+    }
+    const { base64 } = await getPlaiceholder(blogPost.eyecatch.url)
+    blogPost.eyecatch.blurDataURL = base64
+  }
+
 
   return {
     props: {
       news: newsData.contents,
-      blog: blogData.contents,
+      blog: blogPosts,
     },
   };
 };

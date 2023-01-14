@@ -12,7 +12,7 @@ export default function Home({ blog }) {
   return (
     <>
       <Meta/>
-      <Hero title="BLOG"></Hero>
+      <Hero title="BLOG" subtitle="日々のブログを書いています"></Hero>
       <Container full>
         <PostsBlog posts={blog}/>
       </Container>

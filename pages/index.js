@@ -45,7 +45,7 @@ export const getStaticProps = async () => {
       blogPost.eyecatch = eyecatchLocal
     }
     const { base64 } = await getPlaiceholder(blogPost.eyecatch.url)
-    blogPost.eyecatch.blurDataURL = base64
+    blogPost.eyecatch.blurDataURL = base6
   }
 
 
